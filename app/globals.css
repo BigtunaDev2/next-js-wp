@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* Theme tokens (same values as the HTML) */
+:root,
+[data-theme="light"] {
+  --bg: 238 243 250;
+  --surface: 255 255 255;
+  --ink: 10 22 64;
+  --muted: 78 90 128;
+  --accent: 36 77 255;
+  --on-accent: 255 255 255;
+  --sun: 255 196 51;
+  --line-a: .14;
+  --bw: 1px;
+}
+
+[data-theme="dark"] {
+  --bg: 8 11 24;
+  --surface: 17 23 44;
+  --ink: 232 237 255;
+  --muted: 145 156 196;
+  --accent: 100 138 255;
+  --on-accent: 8 11 24;
+  --sun: 255 200 61;
+  --line-a: .16;
+  --bw: 1px;
+}
+
+[data-theme="contrast"] {
+  --bg: 0 0 0;
+  --surface: 0 0 0;
+  --ink: 255 255 255;
+  --muted: 224 224 224;
+  --accent: 0 229 255;
+  --on-accent: 0 0 0;
+  --sun: 255 255 0;
+  --line-a: 1;
+  --bw: 2px;
+}
+
+/* Replaces tailwind.config colors + fontFamily */
+@theme inline {
+  --color-bg: rgb(var(--bg));
+  --color-surface: rgb(var(--surface));
+  --color-ink: rgb(var(--ink));
+  --color-muted: rgb(var(--muted));
+  --color-accent: rgb(var(--accent));
+  --color-on-accent: rgb(var(--on-accent));
+  --color-sun: rgb(var(--sun));
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .3s, color .3s;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgb(var(--sun));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Reusable classes: @utility instead of @layer components */
+@utility line {
+  border: var(--bw) solid rgb(var(--ink) / var(--line-a));
+}
+
+@utility panel {
+  background-color: rgb(var(--surface));
+  border: var(--bw) solid rgb(var(--ink) / var(--line-a));
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 font-semibold transition-transform duration-200 hover:-translate-y-0.5;
+}
+
+@utility btn-solid {
+  @apply bg-accent text-on-accent;
+}
+
+@utility btn-line {
+  @apply text-ink;
+  border: var(--bw) solid rgb(var(--ink) / .55);
+}
+
+@utility h2 {
+  @apply font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl;
+}
+
+@utility wrap {
+  @apply mx-auto max-w-6xl px-5;
+}
+
+@utility blob {
+  border-radius: 62% 38% 46% 54% / 55% 45% 55% 45%;
+}
+
+/* Plain CSS pieces (no changes needed) */
+.grid-bg {
+  background-image:
+    linear-gradient(rgb(var(--ink) / .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--ink) / .07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+details>summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details>summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .plus {
+  transform: rotate(45deg);
+}
+
+.plus {
+  transition: transform .25s;
+}
