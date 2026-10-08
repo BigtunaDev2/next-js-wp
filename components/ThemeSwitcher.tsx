@@ -30,7 +30,7 @@ const themes = [
     ),
   },
 ];
-
+console.log("ThemeSwitcher themes:", themes);
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
