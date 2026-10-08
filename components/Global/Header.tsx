@@ -38,6 +38,7 @@ export default function Header() {
           </li>
         </ul>
         <div className="flex items-center gap-2">
+          <ThemeSwitcher />
           <a
             href="#contact"
             className="btn btn-solid hidden !py-2.5 sm:inline-flex"
