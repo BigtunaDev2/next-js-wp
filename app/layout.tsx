@@ -29,8 +29,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning className={`${syne.variable} ${hanken.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased ${syne.variable} ${hanken.variable}`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
 

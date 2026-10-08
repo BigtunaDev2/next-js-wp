@@ -1,4 +1,4 @@
-export default function Services({ data }) {
+export default function Services( { data }: { data: any }) {
   console.log("Services data:", data);
   return (
     <section
@@ -12,7 +12,7 @@ export default function Services({ data }) {
         </p>
       </div>
       <div className="divide-y divide-ink/20 border-y border-ink/20">
-        {data?.accordion.map((accordion, index) => (
+        {data?.accordion.map((accordion: { heading: string; copy: string }, index: number) => (
           <details className="group py-6" key={index}>
           <summary className="flex items-center justify-between gap-4">
             <span className="font-display text-2xl font-bold sm:text-3xl">

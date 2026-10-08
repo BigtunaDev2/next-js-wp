@@ -1,4 +1,4 @@
-export default function Hero({ data }) {
+export default function Hero({ data }: { data: any }) {
     return (
         <section className="relative overflow-hidden pb-0 pt-16 md:pt-24">
     <div aria-hidden="true" className="grid-bg absolute inset-0" />
