@@ -33,7 +33,51 @@ query HomePage {
           heading
         }
       }
+      recentProjects {
+        description
+        heading
+        cards {
+          copy
+          heading
+          subHeading
+        }
+      }
+      howWeWork {
+        heading
+        cards {
+          copy
+          title
+        }
+      }
+      team {
+        heading
+        cards {
+          copy
+          title
+        }
+      }
+      testimonial {
+        heading
+        cards {
+          copy
+          title
+        }
+      }
+      packages {
+        copy
+        heading
+        cards {
+          copy
+          isFeatured
+          price
+          subTitle
+          title
+        }
+      }
     }
+  }
+  generalSettings {
+    title
   }
 }
 `;

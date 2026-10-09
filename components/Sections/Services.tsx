@@ -1,5 +1,4 @@
 export default function Services( { data }: { data: any }) {
-  console.log("Services data:", data);
   return (
     <section
       id="services"
