@@ -34,32 +34,32 @@ export default async function Home() {
   
   return (
     <>
-  {(homepage.banner && <Hero data={homepage?.banner}/>) || null}
+      {(homepage.banner && <Hero data={homepage?.banner}/>) || null}
+
+      {/* ============ CLIENTS ============ */}
+      <TrustedBy data={homepage?.logos} />
+
+      {/* ============ SERVICES: sticky split + accordion ============ */}
+      <Services data={homepage?.services} />
+
+      {/* ============ WORK: case studies ============ */}
+      <RecentProjects data={homepage?.recentProjects} />
 
 
-  {/* ============ CLIENTS ============ */}
-  <TrustedBy data={homepage?.logos} />
-  
-  {/* ============ SERVICES: sticky split + accordion ============ */}
-  <Services data={homepage?.services} />
-
-  {/* ============ WORK: case studies ============ */}
-  <RecentProjects data={homepage?.recentProjects} />
+      {/* ============ PROCESS ============ */}
+      <HowWeWork data={homepage?.howWeWork} />
 
 
-  {/* ============ PROCESS ============ */}
-  <HowWeWork data={homepage?.howWeWork} />
+      {/* ============ TEAM ============ */}
+      <OurTeam data={homepage?.team} />
 
+      {/* ============ TESTIMONIALS ============ */}
+      <Testimonial data={homepage?.testimonial} />
 
-  {/* ============ TEAM ============ */}
-  <OurTeam data={homepage?.team} />
-  
-  {/* ============ TESTIMONIALS ============ */}
-  <Testimonial data={homepage?.testimonial} />
+      {/* ============ PACKAGES ============ */}
+      <Packages data={homepage?.packages} />
+      </>
 
-  {/* ============ PACKAGES ============ */}
-  <Packages data={homepage?.packages} />
-</>
-
-  );
+      );
 }
+
