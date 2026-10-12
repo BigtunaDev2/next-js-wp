@@ -19,7 +19,7 @@ async function getPage() {
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getPage();
   console.log("data", data.title);
-  const seo = {title: data?.title, metaDesc: data?.content};
+  const seo = { title: data?.title, metaDesc: data?.content };
 
   return {
     title: seo?.title || data?.page?.title || "My Website",
@@ -31,10 +31,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const data = await getPage();
   const { homepage } = data;
-  
+
   return (
-    <>
-      {(homepage.banner && <Hero data={homepage?.banner}/>) || null}
+    <main id="main">
+      {(homepage.banner && <Hero data={homepage?.banner} />) || null}
 
       {/* ============ CLIENTS ============ */}
       <TrustedBy data={homepage?.logos} />
@@ -58,8 +58,8 @@ export default async function Home() {
 
       {/* ============ PACKAGES ============ */}
       <Packages data={homepage?.packages} />
-      </>
+    </main>
 
-      );
+  );
 }
 

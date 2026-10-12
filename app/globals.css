@@ -131,3 +131,42 @@ details[open] .plus {
 .plus {
   transition: transform .25s;
 }
+
+.navlink {
+  @apply flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium hover:text-accent;
+}
+
+.navlink[aria-current="page"] {
+  color: rgb(var(--accent));
+}
+
+@layer components {
+    .navlink { @apply w-full flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium hover:text-accent; }
+    .navlink[aria-current="page"] { color: rgb(var(--accent)); }
+    .ddlink a { @apply flex items-center justify-between gap-2 rounded-xl px-3 py-2 text-sm hover:bg-accent/10; }
+    .field { @apply line w-full rounded-2xl bg-bg px-4 py-3 text-ink placeholder:text-muted; }
+  }
+
+  [hidden] { display: none !important; }
+  [data-theme="dark"], [data-theme="contrast"] { color-scheme: dark; }
+  .tl-item.is-active .tl-dot { background-color: rgb(var(--accent)); transform: scale(1.25); }
+  .jump.is-current { background-color: rgb(var(--accent)); color: rgb(var(--on-accent)); }
+
+
+/* Plain CSS pieces */
+.grid-bg {
+  background-image:
+    linear-gradient(rgb(var(--ink) / .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--ink) / .07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .plus { transform: rotate(45deg); }
+.plus { transition: transform .25s; }
+
+
+  /* About page timeline */
+.tl-item.is-active .tl-dot { background-color: rgb(var(--accent)); transform: scale(1.25); }
+.jump.is-current { background-color: rgb(var(--accent)); color: rgb(var(--on-accent)); }
