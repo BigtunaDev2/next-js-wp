@@ -22,7 +22,7 @@ export default function Header({ menu, settings }: { menu: any[]; settings?: any
       return (
         <div key={item.id}>
           {item.cssClasses == 'mega-menu' ? (
-            <ServiceMegaMenu />
+            <ServiceMegaMenu menu={item.id} />
           ) : (
             <li className={hasChildren ? "group/top relative" : "relative group"}>
               <div className="flex items-center gap-2">

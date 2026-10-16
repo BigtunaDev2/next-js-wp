@@ -31,7 +31,7 @@ export default async function Contact() {
                         <div>
                             <dt className="text-sm font-medium text-muted">Location</dt>
                             <dd className="mt-1 font-display text-xl font-bold">
-                                Ahmedabad, India
+                                New Yourk, USA
                             </dd>
                         </div>
                     </dl>
@@ -42,7 +42,7 @@ export default async function Contact() {
                         id="success"
                         className="panel rounded-[2rem] p-10"
                         role="status"
-                        hidden=""
+                        hidden
                     >
                         <h2 className="font-display text-3xl font-bold">
                             Thank you, <span id="success-name" />!
@@ -108,7 +108,7 @@ export default async function Contact() {
                                     data-err="name"
                                     role="alert"
                                     className="mt-1.5 block text-sm font-medium text-accent"
-                                    hidden=""
+                                    hidden
                                 />
                             </label>
                             <label className="block">
@@ -123,7 +123,7 @@ export default async function Contact() {
                                     data-err="email"
                                     role="alert"
                                     className="mt-1.5 block text-sm font-medium text-accent"
-                                    hidden=""
+                                    hidden
                                 />
                             </label>
                         </div>
@@ -144,7 +144,7 @@ export default async function Contact() {
                                     data-err="service"
                                     role="alert"
                                     className="mt-1.5 block text-sm font-medium text-accent"
-                                    hidden=""
+                                    hidden
                                 />
                             </label>
                             <label className="block">
@@ -172,12 +172,12 @@ export default async function Contact() {
                                     data-err="message"
                                     role="alert"
                                     className="mt-1.5 block text-sm font-medium text-accent"
-                                    hidden=""
+                                    hidden
                                 />
                             </label>
                         </div>
                         {/* Step 3 */}
-                        <div data-step="" className="mt-6" hidden="">
+                        <div data-step="" className="mt-6" hidden>
                             <dl id="review" className="space-y-3" />
                         </div>
                         {/* Honeypot: hidden from people, bots tend to fill it in */}
@@ -193,7 +193,7 @@ export default async function Contact() {
                             id="form-error"
                             role="alert"
                             className="mt-5 text-sm font-medium text-accent"
-                            hidden=""
+                            hidden
                         >
                             Something went wrong. Please try again.
                         </p>
@@ -202,7 +202,7 @@ export default async function Contact() {
                                 type="button"
                                 id="btn-back"
                                 className="btn btn-line"
-                                hidden=""
+                                hidden
                             >
                                 Back
                             </button>

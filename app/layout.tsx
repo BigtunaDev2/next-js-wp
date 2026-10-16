@@ -25,7 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Providers>
           <Header menu={g?.primary?.menuItems?.nodes ?? []} settings={settings} />
           {children}
-          <Footer menu={g?.footer?.nodes ?? []} settings={settings} />
+          <Footer />
         </Providers>
       </body>
     </html>

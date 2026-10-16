@@ -15,12 +15,12 @@ const fallback: Milestone[] = [
 
 export default async function AboutPage() {
     // ACF repeater "timeline" on the About page, with sub fields year, title, text
-    //   const data = await wpQuery<any>(ABOUT_QUERY).catch(() => null);
-    const data = ''
-    const items: Milestone[] = data?.page?.aboutFields?.timeline?.length
-        ? data.page.aboutFields.timeline
-        : fallback;
-
+    // TODO: Uncomment above line and remove this when WP is back online
+    // const data = await wpQuery<any>(ABOUT_QUERY).catch(() => null);
+    // const items: Milestone[] = data?.page?.aboutFields?.timeline?.length
+    //     ? data.page.aboutFields.timeline
+    //     : fallback;
+    const items: Milestone[] = fallback;
     return (
         <main id="main">
             {/* Intro */}
