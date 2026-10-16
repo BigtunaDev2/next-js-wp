@@ -57,7 +57,7 @@ export default async function Contact() {
                     </div>
                     <form
                         id="contact-form"
-                        noValidate=""
+                        noValidate
                         className="panel rounded-[2rem] p-6 sm:p-10"
                     >
                         {/* Step indicator */}
@@ -128,7 +128,7 @@ export default async function Contact() {
                             </label>
                         </div>
                         {/* Step 2 */}
-                        <div data-step="" className="mt-6 space-y-5" hidden="">
+                        <div data-step="" className="mt-6 space-y-5" hidden>
                             <label className="block">
                                 <span className="mb-2 block text-sm font-medium">
                                     What do you need?
