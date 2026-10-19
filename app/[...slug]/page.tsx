@@ -3,6 +3,8 @@ import { wpQuery } from "@/lib/wp";
 import { generateSEOMetadata } from "@/lib/seo";
 import { CMS_PAGE_QUERY } from "@/lib/queries";
 
+export const instant = false;
+
 type PageProps = {
     params: Promise<{ slug: string[] }>;
 };
