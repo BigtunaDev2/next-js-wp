@@ -10,23 +10,17 @@ import HowWeWork from "@/components/Sections/HowWeWork";
 import OurTeam from "@/components/Sections/OurTeam";
 import Testimonial from "@/components/Sections/Testimonial";
 import Packages from "@/components/Sections/Packages";
+import { generateSEOMetadata } from "@/lib/seo";
 
 async function getPage() {
   const data = await wpQuery<any>(HOME_QUERY);
   return data.page;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const data = await getPage();
-  console.log("data", data.title);
-  const seo = { title: data?.title, metaDesc: data?.content };
-
-  return {
-    title: seo?.title || data?.page?.title || "My Website",
-    description: seo?.metaDesc || "",
-  };
+  return generateSEOMetadata(data?.seo);
 }
-
 
 export default async function Home() {
   const data = await getPage();

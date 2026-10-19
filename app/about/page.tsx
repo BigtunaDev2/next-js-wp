@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Timeline, { type Milestone } from "@/components/Timeline";
 import { wpQuery } from "@/lib/wp";
-// import { ABOUT_QUERY } from "@/lib/queries";
+import { ABOUT_QUERY } from "@/lib/queries";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -16,26 +17,34 @@ const fallback: Milestone[] = [
 export default async function AboutPage() {
     // ACF repeater "timeline" on the About page, with sub fields year, title, text
     // TODO: Uncomment above line and remove this when WP is back online
-    // const data = await wpQuery<any>(ABOUT_QUERY).catch(() => null);
-    // const items: Milestone[] = data?.page?.aboutFields?.timeline?.length
-    //     ? data.page.aboutFields.timeline
-    //     : fallback;
-    const items: Milestone[] = fallback;
+    const data = await wpQuery<any>(ABOUT_QUERY).catch(() => null);
+    const pageData = data?.page;
+    const items: Milestone[] = pageData?.about?.timeline?.timeline?.length
+    ? pageData?.about?.timeline?.timeline
+    : null;
+    // const items: Milestone[] = fallback;
+    console.log("About page data:", data?.page);
     return (
         <main id="main">
             {/* Intro */}
             <section className="wrap pb-6 pt-16 md:pt-24">
                 <h1 className="max-w-4xl font-display text-5xl font-extrabold leading-[1] tracking-tight sm:text-7xl">
-                    A small studio that has been shipping since 2019.
+                    {pageData?.title || "About Fieldwork"}
                 </h1>
-                <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted">
-                    Fieldwork started as two friends and a shared desk. Today we are a team of
-                    eight designers and developers who plan, design and build every project
-                    together. Here is how we got here.
-                </p>
+
+                {data?.page?.content && (
+                    <div
+                    className="mt-7 max-w-2xl text-lg leading-relaxed text-muted"
+                    dangerouslySetInnerHTML={{
+                        __html: data?.page?.content,
+                    }}
+                    />
+                )}
             </section>
 
-            <section
+            <Timeline items={items || fallback} />
+            
+            {/* <section
                 className="wrap grid gap-12 py-16 lg:grid-cols-[1fr_1.6fr]"
                 aria-labelledby="timeline-title"
             >
@@ -153,7 +162,7 @@ export default async function AboutPage() {
                         </p>
                     </li>
                 </ol>
-            </section>
+            </section> */}
             {/* CTA */}
             <section className="wrap">
                 <div
@@ -166,8 +175,8 @@ export default async function AboutPage() {
                     <p className="mt-4 max-w-lg opacity-90">
                         Tell us about your project in three short steps.
                     </p>
-                    <a
-                        href="contact.html"
+                    <Link
+                        href="/contact"
                         className="btn mt-8"
                         style={{
                             backgroundColor: "rgb(var(--on-accent))",
@@ -175,7 +184,7 @@ export default async function AboutPage() {
                         }}
                     >
                         Start a project
-                    </a>
+                    </Link>
                 </div>
             </section>
         </main>

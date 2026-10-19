@@ -3,59 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function ServiceMegaMenu({ menu, settings }: { menu: any[]; settings?: any }) {
+export default function ServiceMegaMenu({ menu, megaMenu }: { menu: any[]; megaMenu?: any }) {
 
-    const services = [
-        {
-            title: "Brand websites",
-            image: "https://picsum.photos/seed/fw-websites/640/288",
-            heading: "Sites that load fast and rank well",
-            description:
-                "Fast, SEO-ready sites built with Next.js, with layouts your team can extend.",
-            href: "/#services",
-        },
-        {
-            title: "UI and UX design",
-            image: "https://picsum.photos/seed/fw-design/640/288",
-            heading: "Design you can click before we build",
-            description:
-                "Wireframes, prototypes and polished screens, tested with real users before we code.",
-            href: "/#services",
-        },
-        {
-            title: "Web apps",
-            image: "https://picsum.photos/seed/fw-dashboard/640/288",
-            heading: "Tools your team will actually use",
-            description:
-                "Customer portals and admin tools with sign-in, APIs and clean data tables.",
-            href: "/#services",
-        },
-        {
-            title: "Design systems",
-            image: "https://picsum.photos/seed/fw-system/640/288",
-            heading: "One look across every page",
-            description:
-                "Tailwind component libraries and themes that keep your product consistent as it grows.",
-            href: "/#services",
-        },
-        {
-            title: "Speed and SEO",
-            image: "https://picsum.photos/seed/fw-speed/640/288",
-            heading: "Find out what slows you down",
-            description:
-                "We fix what holds your site back and send before-and-after Lighthouse reports.",
-            href: "/#services",
-        },
-    ];
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const activeService = services[activeIndex];
-
+    const activeService = megaMenu[activeIndex];
 
     return (
         <li className="group/top relative" data-mega-wrap="">
-            <a href="index.html#services" className="navlink" aria-haspopup="true">
-                Services{" "}
+            <a href="#services" className="navlink" aria-haspopup="true">
+                Service{" "}
                 <svg
                     width={12}
                     height={12}
@@ -73,10 +30,10 @@ export default function ServiceMegaMenu({ menu, settings }: { menu: any[]; setti
             <div className="invisible absolute left-0 top-full z-50 w-[620px] pt-3 opacity-0 transition duration-200 group-hover/top:visible group-hover/top:opacity-100 group-focus-within/top:visible group-focus-within/top:opacity-100">
                 <div className="panel relative min-h-[300px] rounded-[1.75rem] p-3">
                     <ul className="w-[210px] space-y-1">
-                        {services.map((service, index) => (
-                            <li key={service.title}>
+                        {megaMenu.map((service, index) => (
+                            <li key={service.href.title}>
                                 <Link
-                                    href={service.href}
+                                    href={service?.href?.url}
                                     onMouseEnter={() =>
                                         setActiveIndex(index)
                                     }
@@ -93,7 +50,7 @@ export default function ServiceMegaMenu({ menu, settings }: { menu: any[]; setti
                                         : ""
                                         }`}
                                 >
-                                    {service.title}
+                                    {service.href.title}
                                     <span aria-hidden="true">→</span>
                                 </Link>
                             </li>
@@ -106,8 +63,8 @@ export default function ServiceMegaMenu({ menu, settings }: { menu: any[]; setti
                     >
                         <div className="h-36 overflow-hidden rounded-2xl bg-accent/15">
                             <img
-                                src={activeService.image}
-                                alt=""
+                                src={activeService.menuImage?.node?.sourceUrl}
+                                alt={activeService.menuImage?.node?.altText}
                                 width={640}
                                 height={288}
                                 className="h-full w-full object-cover"
@@ -115,11 +72,11 @@ export default function ServiceMegaMenu({ menu, settings }: { menu: any[]; setti
                         </div>
 
                         <h3 className="mt-3 font-display text-lg font-bold leading-snug">
-                            {activeService.heading}
+                            {activeService.menuHeading}
                         </h3>
 
                         <p className="mt-1 text-sm leading-relaxed text-muted">
-                            {activeService.description}
+                            {activeService.menuDescription}
                         </p>
                     </div>
                 </div>

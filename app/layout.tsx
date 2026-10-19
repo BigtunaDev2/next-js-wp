@@ -19,13 +19,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // Global data: fetched once here and shared by Header and Footer
   const g = await getGlobal().catch(() => null);
   const settings = g?.siteSettings?.siteSettings;
+  const megaMenu = g?.myGlobalSetting?.myACFSetting?.megaMenu
+  const footer = g.myGlobalSetting?.myACFSetting?.footer;
+  console.log("Footer data:", footer);
   return (
     <html lang="en" suppressHydrationWarning className={`${syne.variable} ${hanken.variable}`}>
       <body>
         <Providers>
-          <Header menu={g?.primary?.menuItems?.nodes ?? []} settings={settings} />
+          <Header menu={g?.primary?.menuItems?.nodes ?? []} settings={settings} megaMenu={megaMenu} />
           {children}
-          <Footer />
+          <Footer footer={footer} />
         </Providers>
       </body>
     </html>

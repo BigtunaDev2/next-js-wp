@@ -5,7 +5,7 @@ export default function Services( { data }: { data: any }) {
       className="wrap grid gap-10 py-24 lg:grid-cols-[1fr_1.7fr]"
     >
       <div className="lg:sticky lg:top-28 lg:self-start">
-        <h2 className="h2">{data?.title}</h2>
+        <h2 className="h2">{data?.heading}</h2>
         <p className="mt-4 max-w-sm text-muted">
           {data?.description}
         </p>

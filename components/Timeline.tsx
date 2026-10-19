@@ -75,18 +75,33 @@ export default function Timeline({ items }: { items: Milestone[] }) {
   };
 
   return (
-    <div ref={root}>
-      <div className="flex flex-wrap gap-2" role="group" aria-label="Jump to year">
-        {items.map((m, i) => (
-          <button
-            key={m.year}
-            type="button"
-            onClick={() => jump(i)}
-            className="jump panel rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-accent"
-          >
-            {m.year}
-          </button>
-        ))}
+    <section
+      className="wrap grid gap-12 py-16 lg:grid-cols-[1fr_1.6fr]"
+      aria-labelledby="timeline-title"
+      ref={root} >
+      <div className="lg:sticky lg:top-28 lg:self-start">
+        <h2 id="timeline-title" className="h2">
+          Our timeline
+        </h2>
+        <p className="mt-3 max-w-xs text-muted">
+          Pick a year to jump straight to it.
+        </p>
+        <div
+          className="mt-6 flex flex-wrap gap-2"
+          role="group"
+          aria-label="Jump to year"
+        >
+          {items.map((m, i) => (
+            <button
+              key={m.year}
+              type="button"
+              onClick={() => jump(i)}
+              className="jump panel rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-accent"
+            >
+              {m.year}
+            </button>
+          ))}
+        </div>
       </div>
 
       <ol className="tl-list relative mt-12 pl-10">
@@ -102,6 +117,6 @@ export default function Timeline({ items }: { items: Milestone[] }) {
           </li>
         ))}
       </ol>
-    </div>
+    </section>
   );
 }

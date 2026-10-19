@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Theme tokens (same values as the HTML) */
 :root,
@@ -170,3 +171,20 @@ details[open] .plus { transform: rotate(45deg); }
   /* About page timeline */
 .tl-item.is-active .tl-dot { background-color: rgb(var(--accent)); transform: scale(1.25); }
 .jump.is-current { background-color: rgb(var(--accent)); color: rgb(var(--on-accent)); }
+
+.cms {
+  --tw-prose-body: rgb(var(--muted));
+  --tw-prose-lead: rgb(var(--muted));
+  --tw-prose-headings: rgb(var(--ink));
+  --tw-prose-bold: rgb(var(--ink));
+  --tw-prose-links: rgb(var(--accent));
+  --tw-prose-counters: rgb(var(--muted));
+  --tw-prose-bullets: rgb(var(--accent));
+  --tw-prose-quotes: rgb(var(--ink));
+  --tw-prose-quote-borders: rgb(var(--accent));
+  --tw-prose-captions: rgb(var(--muted));
+  --tw-prose-code: rgb(var(--ink));
+  --tw-prose-hr: rgb(var(--ink) / .2);
+  --tw-prose-th-borders: rgb(var(--ink) / .25);
+  --tw-prose-td-borders: rgb(var(--ink) / .15);
+}
