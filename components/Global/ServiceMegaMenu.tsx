@@ -30,7 +30,7 @@ export default function ServiceMegaMenu({ menu, megaMenu }: { menu: any[]; megaM
             <div className="invisible absolute left-0 top-full z-50 w-[620px] pt-3 opacity-0 transition duration-200 group-hover/top:visible group-hover/top:opacity-100 group-focus-within/top:visible group-focus-within/top:opacity-100">
                 <div className="panel relative min-h-[300px] rounded-[1.75rem] p-3">
                     <ul className="w-[210px] space-y-1">
-                        {megaMenu.map((service, index) => (
+                        {megaMenu.map((service: any, index: number) => (
                             <li key={service.href.title}>
                                 <Link
                                     href={service?.href?.url}
